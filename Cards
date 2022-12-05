@@ -23,6 +23,11 @@ public class Cards {
             System.out.println(suit + rank + suit);
         }
     }
+    public void Printdeck() {
+        for(int i=0; i<deck.length; i++) {
+            System.out.println(deck[i]);
+        }
+    }
     public void Cutting(int origin) {
         int[] topdeck = new int[52-origin];
         int[] bottomdeck = new int[origin];
