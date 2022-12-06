@@ -4,5 +4,7 @@ public class Main {
         cd.Define();
         cd.Shuffle();
         cd.Display();
+        cd.DealCards();
+        cd.PrintOurCards();
     }
 }
