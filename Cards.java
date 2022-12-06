@@ -4,7 +4,10 @@ public class Cards {
     public static String ranks[] = { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K" };
     public static String mycards[] = new String[4];
     public static String yourcards[] = new String[4];
+    public static String board[] = new String[4];
     String deste[] = new String[52];
+    public static int counter = 0;
+    public static int counter2 = 1;
 
     public void Define() {
         for (int i = 0; i < deck.length; i++) {
@@ -35,22 +38,35 @@ public class Cards {
         int[] bottomdeck = new int[origin];
     }
 
-    public void DealCards() {
+    public void DealCardsFirst() {
         for (int i = 0; i < 4; i++) {
-            int counter = 0;
-            counter++;
             if (counter % 2 == 0) {
-                mycards[counter] = deste[counter];
-            } else {
-                yourcards[counter] = deste[counter];
+                mycards[counter / 2] = deste[counter];
             }
+            counter += 2;
+        }
+        for (int i = 0; i < 4; i++) {
+            if (counter2 % 2 != 0) {
+                yourcards[(counter2 - 1) / 2] = deste[counter2];
+            }
+            counter2 += 2;
+        }
+        int boardstart = 0;
+        for (int i = 8; i <= 11; i++) {
+            board[boardstart] = deste[i];
+            boardstart++;
         }
     }
 
     public void PrintOurCards() {
         for (int i = 0; i < 4; i++) {
-            System.out.println("my cards: " + mycards[i]);
-            System.out.println("your cards: " + yourcards[i]);
+            System.out.println("my " + (i + 1) + ". " + "card: " + mycards[i]);
+        }
+        for (int i = 0; i < 4; i++) {
+            System.out.println("your " + (i + 1) + ". " + "card: " + yourcards[i]);
+        }
+        for (int i = 0; i < 4; i++) {
+            System.out.println("boards " + (i + 1) + "." + "card: " + board[i]);
         }
     }
 }
