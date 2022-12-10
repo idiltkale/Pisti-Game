@@ -4,6 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Cards cd = new Cards();
+        Play pl = new Play();
         cd.Define();
         cd.Shuffle();
         cd.Display();
@@ -11,6 +12,7 @@ public class Main {
         cd.PrintOurCards();
         System.out.println("please choose a card");
         int abc = sc.nextInt();
-        cd.mePlay(abc);
+        pl.mePlay(abc);
+        cd.PrintOurCards();
     }
 }
