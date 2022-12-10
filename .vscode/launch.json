@@ -10,12 +10,6 @@
             "request": "launch",
             "mainClass": "Main",
             "projectName": "adsız klasör 5_50280743"
-        },
-        {
-            "type": "java",
-            "name": "Launch Current File",
-            "request": "launch",
-            "mainClass": "${file}"
         }
     ]
 }
