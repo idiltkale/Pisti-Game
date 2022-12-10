@@ -4,7 +4,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Cards cd = new Cards();
-        Play pl = new Play();
+        mePlay mp = new mePlay();
+        cmpPlay cp = new cmpPlay();
         cd.Define();
         cd.Shuffle();
         cd.Display();
@@ -12,7 +13,16 @@ public class Main {
         cd.PrintOurCards();
         System.out.println("please choose a card");
         int abc = sc.nextInt();
-        pl.mePlay(abc);
+        mp.myTurn(abc);
+        cp.cmpTurn();
         cd.PrintOurCards();
+        for (int i = 0; i < 4; i++) {
+            cd.PrintOurCards();
+            System.out.println("please choose a card");
+            abc = sc.nextInt();
+            mp.myTurn(abc);
+            cp.cmpTurn();
+            cd.PrintOurCards();
+        }
     }
 }

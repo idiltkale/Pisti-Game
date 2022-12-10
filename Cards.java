@@ -3,14 +3,9 @@ public class Cards {
     public static String suits[] = { "♦", "♥", "♠", "♣" };
     public static String ranks[] = { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K" };
     public static String mycards[] = new String[4];
-    public static String yourcards[] = new String[4];
+    public static String cmpcards[] = new String[4];
     public static String board[] = new String[52];
-    public static String onBoard;
-    String deste[] = new String[52];
-
-    public static int pointMe = 0;
-    public static int pointYou = 0;
-    public static int pointDesk = 0;
+    public static String deste[] = new String[52];
 
     public static int counter = 0;
     public static int counter2 = 1;
@@ -54,7 +49,7 @@ public class Cards {
         }
         for (int i = 0; i < 4; i++) {
             if (counter2 % 2 != 0) {
-                yourcards[(counter2 - 1) / 2] = deste[counter2];
+                cmpcards[(counter2 - 1) / 2] = deste[counter2];
                 deste[counter2] = null;
             }
             counter2 += 2;
@@ -72,14 +67,17 @@ public class Cards {
             System.out.println("my " + (i + 1) + ". " + "card: " + mycards[i]);
         }
         for (int i = 0; i < 4; i++) {
-            System.out.println("your " + (i + 1) + ". " + "card: " + yourcards[i]);
+            System.out.println("your " + (i + 1) + ". " + "card: " + cmpcards[i]);
         }
-        for (int i = 51; i > 0; i--) {
+        for (int i = 51; i >= 0; i--) {
             if (board[i] != null) {
                 System.out.println("board: " + board[i]);
                 break;
             }
         }
+        System.out.println("mypoints: " + mePlay.pointMe);
+        System.out.println("yourpoints: " + mePlay.pointYou);
+        System.out.println("boards points: " + mePlay.pointDesk);
     }
 
     public void PrintDeste() {
@@ -87,4 +85,24 @@ public class Cards {
             System.out.println("deste: " + deste[i]);
         }
     }
+
+    public void dealCards() {
+        counter = 0;
+        counter2 = 1;
+        for (int i = 0; i < 4; i++) {
+            if (counter % 2 == 0) {
+                mycards[counter / 2] = deste[counter];
+                deste[counter] = null;
+            }
+            counter += 2;
+        }
+        for (int i = 0; i < 4; i++) {
+            if (counter2 % 2 != 0) {
+                cmpcards[(counter2 - 1) / 2] = deste[counter2];
+                deste[counter2] = null;
+            }
+            counter2 += 2;
+        }
+    }
+
 }

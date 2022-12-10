@@ -1,7 +1,6 @@
 
-public class Play {
+public class mePlay {
     public static String mycards[] = Cards.mycards;
-    public static String yourcards[] = Cards.yourcards;
     public static String board[] = Cards.board;
     public static String onBoard;
     public static int pointMe = 0;
@@ -22,7 +21,7 @@ public class Play {
         return point;
     }
 
-    public void mePlay(int choose) {
+    public void myTurn(int choose) {
         String firstcard = mycards[0];
         String seccard = mycards[1];
         String thirdcard = mycards[2];
@@ -57,7 +56,7 @@ public class Play {
         } else {
             for (int i = (board.length - 1); i > 0; i--) {
                 if (board[i] != null) {
-                    board[i] = cardNum;
+                    board[i + 1] = cardNum;
                 }
             }
         }
