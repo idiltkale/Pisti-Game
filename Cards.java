@@ -87,5 +87,4 @@ public class Cards {
             System.out.println("deste: " + deste[i]);
         }
     }
-
 }

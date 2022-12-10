@@ -1,11 +1,27 @@
+
 public class Play {
-    public static String mycards[]= Cards.mycards;
-    public static String yourcards[]= Cards.yourcards;
+    public static String mycards[] = Cards.mycards;
+    public static String yourcards[] = Cards.yourcards;
     public static String board[] = Cards.board;
     public static String onBoard;
     public static int pointMe = 0;
     public static int pointYou = 0;
     public static int pointDesk = 0;
+    public static int point = 0;
+
+    public int calcPoint(String[] arr, int a) {
+        if (arr[a].contains("J") == true || arr[a].contains("A") == true) {
+            point += 1;
+        }
+        if (arr[a].equals("♣2♣") == true) {
+            point += 2;
+        }
+        if (arr[a].equals("♦10♦") == true) {
+            point += 2;
+        }
+        return point;
+    }
+
     public void mePlay(int choose) {
         String firstcard = mycards[0];
         String seccard = mycards[1];
@@ -15,8 +31,6 @@ public class Play {
         for (int i = 0; i < board.length; i++) {
             if (board[i] != null) {
                 onBoard = board[i];
-            } else {
-                continue;
             }
         }
         String cardNum;
@@ -31,10 +45,12 @@ public class Play {
         if (cardNum.charAt(1) == onBoard.charAt(1)) {
             if (board[1] == null) {
                 System.out.println("Pişti!!!!");
-                pointMe += 20;
+                pointMe += 10;
             }
             board[0] = null;
-            pointMe += pointDesk;
+            calcPoint(mycards, (choose - 1));
+            point += pointDesk;
+
             for (int i = 0; i < board.length; i++) {
                 board[i] = null;
             }
@@ -45,6 +61,6 @@ public class Play {
                 }
             }
         }
-        mycards[choose-1]=null;
+        mycards[choose - 1] = null;
     }
 }
