@@ -9,15 +9,22 @@ public class cmpPlay {
     public static int pointYou = 0;
     public static int pointDesk = 0;
     public static int point = 0;
+    public static String firstcard;
+    public static String seccard;
+    public static String thirdcard;
+    public static String fourthcard;
 
     public void cmpTurn() {
         Random rd = new Random();
-        String firstcard = cmpcards[0];
-        String seccard = cmpcards[1];
-        String thirdcard = cmpcards[2];
-        String fourthcard = cmpcards[3];
+        if (cmpcards[0] != null)
+            firstcard = cmpcards[0];
+        if (cmpcards[1] != null)
+            seccard = cmpcards[1];
+        if (cmpcards[2] != null)
+            thirdcard = cmpcards[2];
+        if (cmpcards[3] != null)
+            fourthcard = cmpcards[3];
         String[] cmprandom = { firstcard, seccard, thirdcard, fourthcard };
-        int cmpchoose;
         for (int i = 0; i < board.length; i++) {
             if (board[i] != null) {
                 onBoard = board[i];
@@ -30,46 +37,49 @@ public class cmpPlay {
             board[0] = cardNum;
             if (cardNum.equals(firstcard)) {
                 cmpcards[0] = null;
-                cmpcards[1] = cmpcards[0];
-                cmpcards[2] = cmpcards[1];
-                cmpcards[3] = cmpcards[2];
+                cmpcards[0] = cmpcards[1];
+                cmpcards[1] = cmpcards[2];
+                cmpcards[2] = cmpcards[3];
+                cmpcards[3] = null;
             } else if (cardNum.equals(seccard)) {
                 cmpcards[1] = null;
-                cmpcards[2] = cmpcards[1];
-                cmpcards[3] = cmpcards[2];
+                cmpcards[1] = cmpcards[2];
+                cmpcards[2] = cmpcards[3];
+                cmpcards[3] = null;
             } else if (cardNum.equals(thirdcard)) {
                 cmpcards[2] = null;
-                cmpcards[3] = cmpcards[2];
+                cmpcards[2] = cmpcards[3];
+                cmpcards[3] = null;
             } else
                 cmpcards[3] = null;
 
         } else {
             if (firstcard.charAt(1) == onBoard.charAt(1)) {
-                cmpchoose = 1;
                 for (int i = 0; i < board.length; i++) {
                     board[i] = null;
                 }
-                cmpcards[1] = cmpcards[0];
-                cmpcards[2] = cmpcards[1];
-                cmpcards[3] = cmpcards[2];
+                cmpcards[0] = cmpcards[1];
+                cmpcards[1] = cmpcards[2];
+                cmpcards[2] = cmpcards[3];
+                cmpcards[3] = null;
             } else if (seccard.charAt(1) == onBoard.charAt(1)) {
-                cmpchoose = 2;
                 for (int i = 0; i < board.length; i++) {
                     board[i] = null;
                 }
-                cmpcards[2] = cmpcards[1];
-                cmpcards[3] = cmpcards[2];
+                cmpcards[1] = cmpcards[2];
+                cmpcards[2] = cmpcards[3];
+                cmpcards[3] = null;
             } else if (thirdcard.charAt(1) == onBoard.charAt(1)) {
-                cmpchoose = 3;
                 for (int i = 0; i < board.length; i++) {
                     board[i] = null;
                 }
-                cmpcards[3] = cmpcards[2];
+                cmpcards[2] = cmpcards[3];
+                cmpcards[3] = null;
             } else if (fourthcard.charAt(1) == onBoard.charAt(1)) {
-                cmpchoose = 4;
                 for (int i = 0; i < board.length; i++) {
                     board[i] = null;
                 }
+                cmpcards[3] = null;
             } else {
                 int index = rd.nextInt(cmprandom.length);
                 String cardNum = cmprandom[index];
@@ -80,16 +90,19 @@ public class cmpPlay {
                 }
                 if (cardNum.equals(firstcard)) {
                     cmpcards[0] = null;
-                    cmpcards[1] = cmpcards[0];
-                    cmpcards[2] = cmpcards[1];
-                    cmpcards[3] = cmpcards[2];
+                    cmpcards[0] = cmpcards[1];
+                    cmpcards[1] = cmpcards[2];
+                    cmpcards[2] = cmpcards[3];
+                    cmpcards[3] = null;
                 } else if (cardNum.equals(seccard)) {
                     cmpcards[1] = null;
-                    cmpcards[2] = cmpcards[1];
-                    cmpcards[3] = cmpcards[2];
+                    cmpcards[1] = cmpcards[2];
+                    cmpcards[2] = cmpcards[3];
+                    cmpcards[3] = null;
                 } else if (cardNum.equals(thirdcard)) {
                     cmpcards[2] = null;
-                    cmpcards[3] = cmpcards[2];
+                    cmpcards[2] = cmpcards[3];
+                    cmpcards[3] = null;
                 } else
                     cmpcards[3] = null;
 

@@ -63,11 +63,16 @@ public class Cards {
     }
 
     public void PrintOurCards() {
+        System.out.println("***********************");
         for (int i = 0; i < 4; i++) {
+            // if (mycards[i]!=null) {
             System.out.println("my " + (i + 1) + ". " + "card: " + mycards[i]);
+            // }
         }
         for (int i = 0; i < 4; i++) {
+            // if(cmpcards[i]!=null) {
             System.out.println("your " + (i + 1) + ". " + "card: " + cmpcards[i]);
+            // }
         }
         for (int i = 51; i >= 0; i--) {
             if (board[i] != null) {
@@ -75,9 +80,10 @@ public class Cards {
                 break;
             }
         }
-        System.out.println("mypoints: " + mePlay.pointMe);
-        System.out.println("yourpoints: " + mePlay.pointYou);
-        System.out.println("boards points: " + mePlay.pointDesk);
+        // System.out.println("mypoints: " + mePlay.pointMe);
+        // System.out.println("yourpoints: " + mePlay.pointYou);
+        // System.out.println("boards points: " + mePlay.pointDesk);
+        System.out.println("***********************");
     }
 
     public void PrintDeste() {

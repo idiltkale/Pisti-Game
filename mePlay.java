@@ -41,14 +41,13 @@ public class mePlay {
             cardNum = thirdcard;
         else
             cardNum = fourthcard;
+
         if (cardNum.charAt(1) == onBoard.charAt(1)) {
             if (board[1] == null) {
-                System.out.println("Pişti!!!!");
+                System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!");
                 pointMe += 10;
+                board[0] = null;
             }
-            board[0] = null;
-            calcPoint(mycards, (choose - 1));
-            point += pointDesk;
 
             for (int i = 0; i < board.length; i++) {
                 board[i] = null;
@@ -60,6 +59,23 @@ public class mePlay {
                 }
             }
         }
-        mycards[choose - 1] = null;
+        if (cardNum.equals(firstcard)) {
+            mycards[0] = null;
+            mycards[0] = mycards[1];
+            mycards[1] = mycards[2];
+            mycards[2] = mycards[3];
+            mycards[3] = null;
+        } else if (cardNum.equals(seccard)) {
+            mycards[1] = null;
+            mycards[1] = mycards[2];
+            mycards[2] = mycards[3];
+            mycards[3] = null;
+        } else if (cardNum.equals(thirdcard)) {
+            mycards[2] = null;
+            mycards[2] = mycards[3];
+            mycards[3] = null;
+        } else
+            mycards[3] = null;
+
     }
 }
