@@ -104,5 +104,4 @@ public class Cards {
             counter2 += 2;
         }
     }
-
 }

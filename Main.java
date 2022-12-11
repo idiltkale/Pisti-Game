@@ -15,14 +15,12 @@ public class Main {
         int abc = sc.nextInt();
         mp.myTurn(abc);
         cp.cmpTurn();
-        cd.PrintOurCards();
         for (int i = 0; i < 4; i++) {
             cd.PrintOurCards();
             System.out.println("please choose a card");
             abc = sc.nextInt();
             mp.myTurn(abc);
             cp.cmpTurn();
-            cd.PrintOurCards();
         }
     }
 }
