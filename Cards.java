@@ -76,8 +76,7 @@ public class Cards {
         }
         for (int i = 51; i >= 0; i--) {
             if (board[i] != null) {
-                System.out.println("board: " + board[i]);
-                break;
+                System.out.println("board: " + (i + 1) + "." + board[i]);
             }
         }
         // System.out.println("mypoints: " + mePlay.pointMe);

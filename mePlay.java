@@ -39,6 +39,8 @@ public class mePlay {
             cardNum = seccard;
         else if (choose == 3)
             cardNum = thirdcard;
+        else if (choose == 4)
+            cardNum = fourthcard;
         else
             cardNum = fourthcard;
 
@@ -53,9 +55,14 @@ public class mePlay {
                 board[i] = null;
             }
         } else {
-            for (int i = (board.length - 1); i > 0; i--) {
+            for (int i = (board.length - 1); i >= 0; i--) {
+                if (board[0] == null) {
+                    board[0] = cardNum;
+                    break;
+                }
                 if (board[i] != null) {
                     board[i + 1] = cardNum;
+                    break;
                 }
             }
         }

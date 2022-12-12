@@ -16,13 +16,14 @@ public class Main {
         mp.myTurn(abc);
         cd.PrintOurCards();
         cp.cmpTurn();
+        cd.PrintOurCards();
         for (int i = 0; i < 4; i++) {
-            cd.PrintOurCards();
             System.out.println("please choose a card");
             abc = sc.nextInt();
             mp.myTurn(abc);
             cd.PrintOurCards();
             cp.cmpTurn();
+            cd.PrintOurCards();
         }
     }
 }

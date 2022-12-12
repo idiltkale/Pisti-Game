@@ -14,26 +14,37 @@ public class cmpPlay {
     public static String thirdcard;
     public static String fourthcard;
 
+    public String cmpRandom(int index) {
+        Random rd = new Random();
+        firstcard = cmpcards[0];
+        seccard = cmpcards[1];
+        thirdcard = cmpcards[2];
+        fourthcard = cmpcards[3];
+        String[] cmprandom = { firstcard, seccard, thirdcard, fourthcard };
+        index = rd.nextInt(cmprandom.length);
+        String cardNum = cmprandom[index];
+        while (cardNum == null) {
+            index = rd.nextInt(cmprandom.length);
+            cardNum = cmprandom[index];
+        }
+        return cardNum;
+    }
+
     public void cmpTurn() {
         Random rd = new Random();
-        if (cmpcards[0] != null)
-            firstcard = cmpcards[0];
-        if (cmpcards[1] != null)
-            seccard = cmpcards[1];
-        if (cmpcards[2] != null)
-            thirdcard = cmpcards[2];
-        if (cmpcards[3] != null)
-            fourthcard = cmpcards[3];
-        String[] cmprandom = { firstcard, seccard, thirdcard, fourthcard };
+        firstcard = cmpcards[0];
+        seccard = cmpcards[1];
+        thirdcard = cmpcards[2];
+        fourthcard = cmpcards[3];
+
         for (int i = 0; i < board.length; i++) {
             if (board[i] != null) {
                 onBoard = board[i];
             }
         }
-
         if (board[0] == null) {
-            int index = rd.nextInt(cmprandom.length);
-            String cardNum = cmprandom[index];
+            String cardNum = cmpRandom(0);
+            System.out.println("RAANDOMMM first : " + cardNum);
             board[0] = cardNum;
             if (cardNum.equals(firstcard)) {
                 cmpcards[0] = null;
@@ -53,8 +64,18 @@ public class cmpPlay {
             } else
                 cmpcards[3] = null;
 
+            for (int i = 0; i < board.length; i++) {
+                if (board[i] != null) {
+                    onBoard = board[i];
+                }
+            }
         } else {
-            if (firstcard.charAt(1) == onBoard.charAt(1)) {
+            if (firstcard != null && firstcard.charAt(1) == onBoard.charAt(1)) {
+                if (board[1] == null) {
+                    System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!   for computer");
+                    pointYou += 10;
+                    board[0] = null;
+                }
                 for (int i = 0; i < board.length; i++) {
                     board[i] = null;
                 }
@@ -62,53 +83,70 @@ public class cmpPlay {
                 cmpcards[1] = cmpcards[2];
                 cmpcards[2] = cmpcards[3];
                 cmpcards[3] = null;
-            } else if (seccard.charAt(1) == onBoard.charAt(1)) {
+            } else if (seccard != null && seccard.charAt(1) == onBoard.charAt(1)) {
+                if (board[1] == null) {
+                    System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!    for computer");
+                    pointYou += 10;
+                    board[0] = null;
+                }
                 for (int i = 0; i < board.length; i++) {
                     board[i] = null;
                 }
                 cmpcards[1] = cmpcards[2];
                 cmpcards[2] = cmpcards[3];
                 cmpcards[3] = null;
-            } else if (thirdcard.charAt(1) == onBoard.charAt(1)) {
+            } else if (thirdcard != null && thirdcard.charAt(1) == onBoard.charAt(1)) {
+                if (board[1] == null) {
+                    System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!    for computer");
+                    pointYou += 10;
+                    board[0] = null;
+                }
                 for (int i = 0; i < board.length; i++) {
                     board[i] = null;
                 }
                 cmpcards[2] = cmpcards[3];
                 cmpcards[3] = null;
-            } else if (fourthcard.charAt(1) == onBoard.charAt(1)) {
+            } else if (fourthcard != null && fourthcard.charAt(1) == onBoard.charAt(1)) {
+                if (board[1] == null) {
+                    System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!     for computer");
+                    pointYou += 10;
+                    board[0] = null;
+                }
                 for (int i = 0; i < board.length; i++) {
                     board[i] = null;
                 }
                 cmpcards[3] = null;
             } else {
-                int index = rd.nextInt(cmprandom.length);
-                String cardNum = cmprandom[index];
-                for (int i = board.length - 1; i > 0; i--) {
+                String cardNum = cmpRandom(0);
+                System.out.println("RAANDOMMM second random: " + cardNum);
+                for (int i = board.length - 1; i >= 0; i--) {
                     if (board[i] != null) {
                         board[i + 1] = cardNum;
+                        break;
                     }
                 }
-                if (cardNum.equals(firstcard)) {
+                if (cardNum != null && cardNum.equals(firstcard)) {
+                    System.out.println("1.YE EŞİT");
                     cmpcards[0] = null;
                     cmpcards[0] = cmpcards[1];
                     cmpcards[1] = cmpcards[2];
                     cmpcards[2] = cmpcards[3];
                     cmpcards[3] = null;
-                } else if (cardNum.equals(seccard)) {
+                } else if (cardNum != null && cardNum.equals(seccard)) {
+                    System.out.println("2.YE EŞİT");
                     cmpcards[1] = null;
                     cmpcards[1] = cmpcards[2];
                     cmpcards[2] = cmpcards[3];
                     cmpcards[3] = null;
-                } else if (cardNum.equals(thirdcard)) {
+                } else if (cardNum != null && cardNum.equals(thirdcard)) {
+                    System.out.println("3.YE EŞİT");
                     cmpcards[2] = null;
                     cmpcards[2] = cmpcards[3];
                     cmpcards[3] = null;
-                } else
-                    cmpcards[3] = null;
 
-                String[] newcmpcards = new String[cmpcards.length - 1];
-                for (int i = 0; i < newcmpcards.length; i++) {
-                    newcmpcards[i] = cmpcards[i];
+                } else if (cardNum != null && cardNum.equals(fourthcard)) {
+                    System.out.println("4.YE EŞİT");
+                    cmpcards[3] = null;
                 }
             }
         }
