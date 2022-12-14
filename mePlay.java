@@ -83,6 +83,5 @@ public class mePlay {
             mycards[3] = null;
         } else
             mycards[3] = null;
-
     }
 }

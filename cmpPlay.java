@@ -44,7 +44,6 @@ public class cmpPlay {
         }
         if (board[0] == null) {
             String cardNum = cmpRandom(0);
-            System.out.println("RAANDOMMM first : " + cardNum);
             board[0] = cardNum;
             if (cardNum.equals(firstcard)) {
                 cmpcards[0] = null;
@@ -118,7 +117,6 @@ public class cmpPlay {
                 cmpcards[3] = null;
             } else {
                 String cardNum = cmpRandom(0);
-                System.out.println("RAANDOMMM second random: " + cardNum);
                 for (int i = board.length - 1; i >= 0; i--) {
                     if (board[i] != null) {
                         board[i + 1] = cardNum;
@@ -126,26 +124,22 @@ public class cmpPlay {
                     }
                 }
                 if (cardNum != null && cardNum.equals(firstcard)) {
-                    System.out.println("1.YE EŞİT");
                     cmpcards[0] = null;
                     cmpcards[0] = cmpcards[1];
                     cmpcards[1] = cmpcards[2];
                     cmpcards[2] = cmpcards[3];
                     cmpcards[3] = null;
                 } else if (cardNum != null && cardNum.equals(seccard)) {
-                    System.out.println("2.YE EŞİT");
                     cmpcards[1] = null;
                     cmpcards[1] = cmpcards[2];
                     cmpcards[2] = cmpcards[3];
                     cmpcards[3] = null;
                 } else if (cardNum != null && cardNum.equals(thirdcard)) {
-                    System.out.println("3.YE EŞİT");
                     cmpcards[2] = null;
                     cmpcards[2] = cmpcards[3];
                     cmpcards[3] = null;
 
                 } else if (cardNum != null && cardNum.equals(fourthcard)) {
-                    System.out.println("4.YE EŞİT");
                     cmpcards[3] = null;
                 }
             }

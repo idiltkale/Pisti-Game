@@ -11,18 +11,18 @@ public class Main {
         cd.Display();
         cd.DealCardsFirst();
         cd.PrintOurCards();
-        System.out.println("please choose a card");
-        int abc = sc.nextInt();
-        mp.myTurn(abc);
-        cd.PrintOurCards();
-        cp.cmpTurn();
-        cd.PrintOurCards();
-        for (int i = 0; i < 4; i++) {
-            System.out.println("please choose a card");
-            abc = sc.nextInt();
-            mp.myTurn(abc);
-            cd.PrintOurCards();
-            cp.cmpTurn();
+        int abc;
+        for (int i = 0; i < 5; i++) {
+            for (int a = 0; a < 4; a++) {
+                System.out.println("please choose a card");
+                abc = sc.nextInt();
+                mp.myTurn(abc);
+                cp.cmpTurn();
+                cd.PrintOurCards();
+            }
+            System.out.println("kartlar dağıtılıyor...");
+            // if(Cards.deste[51]!=null)
+            cd.dealCards();
             cd.PrintOurCards();
         }
     }

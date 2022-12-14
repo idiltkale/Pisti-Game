@@ -1,7 +1,7 @@
 public class Cards {
     int deck[] = new int[52];
     public static String suits[] = { "♦", "♥", "♠", "♣" };
-    public static String ranks[] = { "A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K" };
+    public static String ranks[] = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
     public static String mycards[] = new String[4];
     public static String cmpcards[] = new String[4];
     public static String board[] = new String[52];
@@ -9,6 +9,9 @@ public class Cards {
 
     public static int counter = 0;
     public static int counter2 = 1;
+    public static int counter3 = 12;
+    public static int m = 0;
+    public static int c = 0;
 
     public void Define() {
         for (int i = 0; i < deck.length; i++) {
@@ -65,18 +68,19 @@ public class Cards {
     public void PrintOurCards() {
         System.out.println("***********************");
         for (int i = 0; i < 4; i++) {
-            // if (mycards[i]!=null) {
-            System.out.println("my " + (i + 1) + ". " + "card: " + mycards[i]);
-            // }
+            if (mycards[i] != null) {
+                System.out.println("my " + (i + 1) + ". " + "card: " + mycards[i]);
+            }
         }
         for (int i = 0; i < 4; i++) {
-            // if(cmpcards[i]!=null) {
-            System.out.println("your " + (i + 1) + ". " + "card: " + cmpcards[i]);
-            // }
+            if (cmpcards[i] != null) {
+                System.out.println("computer's " + (i + 1) + ". " + "card: " + cmpcards[i]);
+            }
         }
         for (int i = 51; i >= 0; i--) {
             if (board[i] != null) {
-                System.out.println("board: " + (i + 1) + "." + board[i]);
+                System.out.println("board: " + board[i]);
+                break;
             }
         }
         // System.out.println("mypoints: " + mePlay.pointMe);
@@ -86,27 +90,27 @@ public class Cards {
     }
 
     public void PrintDeste() {
-        for (int i = 0; i < deste.length; i++) {
-            System.out.println("deste: " + deste[i]);
+        for (String s : deste) {
+            System.out.println(s);
         }
     }
 
     public void dealCards() {
-        counter = 0;
-        counter2 = 1;
-        for (int i = 0; i < 4; i++) {
-            if (counter % 2 == 0) {
-                mycards[counter / 2] = deste[counter];
-                deste[counter] = null;
+        for (int i = 0; i < counter3 + 8; i++) {
+            if (deste[i] != null) {
+                if (i % 2 != 0) {
+                    cmpcards[c] = deste[i];
+                    deste[i] = null;
+                    c++;
+                } else if (i % 2 == 0) {
+                    mycards[m] = deste[i];
+                    deste[i] = null;
+                    m++;
+                }
             }
-            counter += 2;
         }
-        for (int i = 0; i < 4; i++) {
-            if (counter2 % 2 != 0) {
-                cmpcards[(counter2 - 1) / 2] = deste[counter2];
-                deste[counter2] = null;
-            }
-            counter2 += 2;
-        }
+        counter3 += 8;
+        m = 0;
+        c = 0;
     }
 }
