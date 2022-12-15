@@ -2,6 +2,7 @@
 public class mePlay {
     public static String mycards[] = Cards.mycards;
     public static String board[] = Cards.board;
+    public static String counterc[] = Cards.counterc;
     public static String onBoard;
     public static int pointMe = 0;
     public static int pointYou = 0;
@@ -42,9 +43,14 @@ public class mePlay {
         else if (choose == 4)
             cardNum = fourthcard;
         else
-            cardNum = fourthcard;
+            cardNum = fourthcard; // fix here
 
-        if (cardNum.charAt(1) == onBoard.charAt(1)) {
+        if (cardNum.charAt(1) == 'J') {
+            System.out.println("bc of joker, you'll get all the cards");
+            for (String i : board) {
+                i = null;
+            }
+        } else if (cardNum.charAt(1) == onBoard.charAt(1)) {
             if (board[1] == null) {
                 System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!");
                 pointMe += 10;
@@ -83,5 +89,8 @@ public class mePlay {
             mycards[3] = null;
         } else
             mycards[3] = null;
+
+        counterc[choose] += 1;
+
     }
 }

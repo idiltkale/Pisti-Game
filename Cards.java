@@ -13,6 +13,8 @@ public class Cards {
     public static int m = 0;
     public static int c = 0;
 
+    public static String counterc[] = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "K", "Q", "J" };
+
     public void Define() {
         for (int i = 0; i < deck.length; i++) {
             deck[i] = i;
@@ -83,6 +85,9 @@ public class Cards {
                 break;
             }
         }
+        // for(int x=0; x<13 ; x++) {
+        // System.out.println("counter" + x + ":" + counterc[x]);
+        // }
         // System.out.println("mypoints: " + mePlay.pointMe);
         // System.out.println("yourpoints: " + mePlay.pointYou);
         // System.out.println("boards points: " + mePlay.pointDesk);

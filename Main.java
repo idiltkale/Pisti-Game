@@ -12,7 +12,7 @@ public class Main {
         cd.DealCardsFirst();
         cd.PrintOurCards();
         int abc;
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             for (int a = 0; a < 4; a++) {
                 System.out.println("please choose a card");
                 abc = sc.nextInt();
@@ -20,10 +20,12 @@ public class Main {
                 cp.cmpTurn();
                 cd.PrintOurCards();
             }
-            System.out.println("kartlar dağıtılıyor...");
-            // if(Cards.deste[51]!=null)
-            cd.dealCards();
-            cd.PrintOurCards();
+            if (i != 5) {
+                System.out.println("kartlar dağıtılıyor...");
+                cd.dealCards();
+                cd.PrintOurCards();
+            } else
+                System.out.println("oyun bitti");
         }
     }
 }

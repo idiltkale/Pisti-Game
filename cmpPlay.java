@@ -4,6 +4,7 @@ public class cmpPlay {
     public static String mycards[] = Cards.mycards;
     public static String cmpcards[] = Cards.cmpcards;
     public static String board[] = Cards.board;
+    public static String counterc[] = Cards.counterc;
     public static String onBoard;
     public static int pointMe = 0;
     public static int pointYou = 0;
@@ -13,6 +14,9 @@ public class cmpPlay {
     public static String seccard;
     public static String thirdcard;
     public static String fourthcard;
+    public static String cardNum;
+    public static boolean bool;
+    boolean b = true;
 
     public String cmpRandom(int index) {
         Random rd = new Random();
@@ -74,7 +78,9 @@ public class cmpPlay {
                     System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!   for computer");
                     pointYou += 10;
                     board[0] = null;
-                }
+                } else if (firstcard.equals('J'))
+                    System.out.println("joker!!!!!!");
+
                 for (int i = 0; i < board.length; i++) {
                     board[i] = null;
                 }
@@ -87,7 +93,8 @@ public class cmpPlay {
                     System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!    for computer");
                     pointYou += 10;
                     board[0] = null;
-                }
+                } else if (seccard.equals('J'))
+                    System.out.println("joker!!!!");
                 for (int i = 0; i < board.length; i++) {
                     board[i] = null;
                 }
@@ -99,7 +106,8 @@ public class cmpPlay {
                     System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!    for computer");
                     pointYou += 10;
                     board[0] = null;
-                }
+                } else if (thirdcard.equals('J'))
+                    System.out.println("joker!!!!!!");
                 for (int i = 0; i < board.length; i++) {
                     board[i] = null;
                 }
@@ -110,17 +118,29 @@ public class cmpPlay {
                     System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!     for computer");
                     pointYou += 10;
                     board[0] = null;
-                }
+                } else if (fourthcard.equals('J'))
+                    System.out.println("joker!!!!!");
                 for (int i = 0; i < board.length; i++) {
                     board[i] = null;
                 }
                 cmpcards[3] = null;
             } else {
-                String cardNum = cmpRandom(0);
-                for (int i = board.length - 1; i >= 0; i--) {
-                    if (board[i] != null) {
-                        board[i + 1] = cardNum;
-                        break;
+                for (int i = 0; i < cmpcards.length; i++) {
+                    if (cmpcards[i] != null && cmpcards[i].equals('J')) {
+                        System.out.println("computer has joker!!");
+                        cardNum = cmpcards[i];
+                        bool = true;
+                        for (String s : board)
+                            s = null;
+                    }
+                }
+                if (bool != true) {
+                    cardNum = cmpRandom(0);
+                    for (int i = board.length - 1; i >= 0; i--) {
+                        if (board[i] != null) {
+                            board[i + 1] = cardNum;
+                            break;
+                        }
                     }
                 }
                 if (cardNum != null && cardNum.equals(firstcard)) {
