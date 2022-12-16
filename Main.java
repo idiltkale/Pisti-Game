@@ -6,6 +6,7 @@ public class Main {
         Cards cd = new Cards();
         mePlay mp = new mePlay();
         cmpPlay cp = new cmpPlay();
+        Points pt = new Points();
         cd.Define();
         cd.Shuffle();
         cd.Display();
@@ -17,6 +18,7 @@ public class Main {
                 System.out.println("please choose a card");
                 abc = sc.nextInt();
                 mp.myTurn(abc);
+                cd.PrintOurCards();
                 cp.cmpTurn();
                 cd.PrintOurCards();
             }
@@ -27,5 +29,7 @@ public class Main {
             } else
                 System.out.println("oyun bitti");
         }
+        pt.Points();
+        cd.Points();
     }
 }

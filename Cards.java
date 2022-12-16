@@ -6,14 +6,16 @@ public class Cards {
     public static String cmpcards[] = new String[4];
     public static String board[] = new String[52];
     public static String deste[] = new String[52];
+    public static int myPoint = Points.myPoint;
+    public static int cmpPoint = Points.cmpPoint;
+    public static String myWins[] = Points.myWins;
+    public static String cmpWins[] = Points.cmpWins;
 
     public static int counter = 0;
     public static int counter2 = 1;
     public static int counter3 = 12;
     public static int m = 0;
     public static int c = 0;
-
-    public static String counterc[] = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "K", "Q", "J" };
 
     public void Define() {
         for (int i = 0; i < deck.length; i++) {
@@ -81,8 +83,7 @@ public class Cards {
         }
         for (int i = 51; i >= 0; i--) {
             if (board[i] != null) {
-                System.out.println("board: " + board[i]);
-                break;
+                System.out.println(board[i]);
             }
         }
         // for(int x=0; x<13 ; x++) {
@@ -117,5 +118,17 @@ public class Cards {
         counter3 += 8;
         m = 0;
         c = 0;
+    }
+
+    public void Points() {
+        for (String s : myWins)
+            System.out.println(s);
+        System.out.println("************************************");
+        for (String s : cmpWins)
+            System.out.println(s);
+        System.out.println("******************");
+        System.out.println("my p: " + Points.myPoint + "pisti: " + mePlay.mpisti);
+        System.out.println("cmop p: " + Points.cmpPoint + "pisti: " + cmpPlay.cpisti);
+        System.out.println();
     }
 }
