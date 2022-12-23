@@ -3,14 +3,16 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("welcome to the 'pişti' game");
         Cards cd = new Cards();
         mePlay mp = new mePlay();
         cmpPlay cp = new cmpPlay();
         Points pt = new Points();
+        Dealer dl = new Dealer();
         cd.Define();
         cd.Shuffle();
         cd.Display();
-        cd.DealCardsFirst();
+        dl.DealCardsFirst();
         cd.PrintOurCards();
         int abc;
         for (int i = 0; i < 6; i++) {
@@ -23,13 +25,13 @@ public class Main {
                 cd.PrintOurCards();
             }
             if (i != 5) {
-                System.out.println("kartlar dağıtılıyor...");
-                cd.dealCards();
+                System.out.println("cards are dealing...");
+                dl.dealCards();
                 cd.PrintOurCards();
-            } else
-                System.out.println("oyun bitti");
+            } else System.out.println("the game is over");
         }
         pt.Points();
-        cd.Points();
+        pt.PrintPoints();
+        
     }
 }
