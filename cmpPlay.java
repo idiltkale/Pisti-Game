@@ -4,47 +4,60 @@ public class cmpPlay {
     public static String mycards[] = Cards.mycards;
     public static String cmpcards[] = Cards.cmpcards;
     public static String board[] = Cards.board;
+    public static int cmpPoint = Points.cmpPoint;
     public static String cmpWins[] = Points.cmpWins;
     public static String onBoard;
     public static String cardNum;
     public static int cpisti=0;
-    boolean bool = false;
+    boolean b = false;
     int i =0;
-    public void Counter() {
-        for(int i=0;i<14;i++) {
 
-        }
-    }
     public void cmpP (String cardNum) {
         for (int k = (board.length - 1); k >= 0; k--) {
             if (board[k] != null) {
                 board[k + 1] = cardNum;
                 break;
             }
-        }for(int y=0;y<cmpWins.length;y++) {
+        }
+        for(int y=0;y<cmpWins.length;y++) {
             if(cmpWins[y]==null&&board[i]!=null) {
-                 cmpWins[y]=board[i];
+                cmpWins[y]=board[i];
                 if(i!=52) {
                     board[i]=null;
                     i++;
-                } else{
+                }
+                else{
                     i++;
                     break;
                 }
-            } else i=0;
+            }
+            else i=0;
         }
     }
     public String cmpRandom(int index) {
         Random rd = new Random();
-        String[] cmprandom = { cmpcards[0], cmpcards[1], cmpcards[2], cmpcards[3] };
-        index = rd.nextInt(cmprandom.length);
-        String cardNum = cmprandom[index];
-        while ((cardNum == null) || (cardNum.charAt(1) == 'J')) {
+        for(int i=0; i< cmpcards.length;i++) {
+            String s = Counter.CheckCounts(cmpcards[i]);
+            if (s != null){
+                cardNum = s;
+            }
+            else {
+                cardNum = null;
+            }
+        }
+        if(cardNum==null) {
+            String[] cmprandom = { cmpcards[0], cmpcards[1], cmpcards[2], cmpcards[3] };
             index = rd.nextInt(cmprandom.length);
             cardNum = cmprandom[index];
+            while ((cardNum == null) || (cardNum.charAt(1) == 'J')) {
+                index = rd.nextInt(cmprandom.length);
+                cardNum = cmprandom[index];
+            }
         }
+        Counter.PlayThisCard=null;
         return cardNum;
     }
+
     public void cmpTurn() {
         for (int i = 0; i < board.length; i++) {
             if (board[i] != null) {
@@ -54,42 +67,36 @@ public class cmpPlay {
 
         if (board[0] == null) {
             String cardNum = cmpRandom(0);
+            Counter.CountForComp(cardNum);
             board[0] = cardNum;
-            if (cardNum != null) {
-                if (cardNum.equals(cmpcards[0])) {
-                    cmpcards[0] = cmpcards[1];
-                    cmpcards[1] = cmpcards[2];
-                    cmpcards[2] = cmpcards[3];
-                    cmpcards[3] = null;
-                } else if (cardNum.equals(cmpcards[1])) {
-                    cmpcards[1] = cmpcards[2];
-                    cmpcards[2] = cmpcards[3];
-                    cmpcards[3] = null;
-                } else if (cardNum.equals(cmpcards[2])) {
-                    cmpcards[2] = cmpcards[3];
-                    cmpcards[3] = null;
+            if (cardNum.equals(cmpcards[0])) {
+                cmpcards[0] = null;
+                cmpcards[0] = cmpcards[1];
+                cmpcards[1] = cmpcards[2];
+                cmpcards[2] = cmpcards[3];
+                cmpcards[3] = null;
+            } else if (cardNum.equals(cmpcards[1])) {
+                cmpcards[1] = null;
+                cmpcards[1] = cmpcards[2];
+                cmpcards[2] = cmpcards[3];
+                cmpcards[3] = null;
+            } else if (cardNum.equals(cmpcards[2])) {
+                cmpcards[2] = null;
+                cmpcards[2] = cmpcards[3];
+                cmpcards[3] = null;
+            } else
+                cmpcards[3] = null;
 
-                } else if (cardNum.equals(cmpcards[3])) {
-                    cmpcards[3] = null;
-                }
-                /*for(int i=0;i<4;i++) {
-                    if(cardNum.equals(cmpcards[i])) {
-                        cmpcards[i] = null;
-                        cmpcards[i]= cmpcards[i+1];
-                    }
-                }*/
-            }
             for (int i = 0; i < board.length; i++) {
                 if (board[i] != null) {
                     onBoard = board[i];
                 }
             }
-
-
         } else {
 
             if (cmpcards[0] != null && cmpcards[0].charAt(1) == onBoard.charAt(1) && cmpcards[0].charAt(1) != 'J' ) {
 
+                Counter.CountForComp(cmpcards[0]);
                 if (board[1] == null) {
                     System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!   for computer");
                     cpisti++;
@@ -99,7 +106,12 @@ public class cmpPlay {
                         board[i] = null;
                     }
                 }
+
+               /* for (int i = 0; i < board.length; i++) {
+                    board[i] = null;
+                }*/
                 else cmpP(cmpcards[0]);
+
                 cmpcards[0] = cmpcards[1];
                 cmpcards[1] = cmpcards[2];
                 cmpcards[2] = cmpcards[3];
@@ -107,6 +119,7 @@ public class cmpPlay {
 
             }
             else if (cmpcards[1] != null && cmpcards[1].charAt(1) == onBoard.charAt(1)&&cmpcards[1].charAt(1) != 'J') {
+                Counter.CountForComp(cmpcards[1]);
                 if (board[1] == null) {
                     System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!    for computer");
                     cpisti++;
@@ -116,7 +129,11 @@ public class cmpPlay {
                         board[i] = null;
                     }
                 }
+                 /* for (int i = 0; i < board.length; i++) {
+                    board[i] = null;
+                }*/
                 else cmpP(cmpcards[1]);
+
                 cmpcards[1] = cmpcards[2];
                 cmpcards[2] = cmpcards[3];
                 cmpcards[3] = null;
@@ -124,6 +141,7 @@ public class cmpPlay {
 
             }
             else if (cmpcards[2] != null && cmpcards[2].charAt(1) == onBoard.charAt(1)&&cmpcards[2].charAt(1) != 'J') {
+                Counter.CountForComp(cmpcards[2]);
                 if (board[1] == null) {
                     System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!    for computer");
                     cpisti++;
@@ -133,13 +151,18 @@ public class cmpPlay {
                         board[i] = null;
                     }
                 }
+                 /* for (int i = 0; i < board.length; i++) {
+                    board[i] = null;
+                }*/
                 else cmpP(cmpcards[2]);
+
                 cmpcards[2] = cmpcards[3];
                 cmpcards[3] = null;
 
 
             }
             else if (cmpcards[3] != null && cmpcards[3].charAt(1) == onBoard.charAt(1)&&cmpcards[3].charAt(1) != 'J') {
+                Counter.CountForComp(cmpcards[3]);
                 if (board[1] == null) {
                     System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!     for computer");
                     cpisti++;
@@ -149,8 +172,13 @@ public class cmpPlay {
                         board[i] = null;
                     }
                 }
+                 /* for (int i = 0; i < board.length; i++) {
+                    board[i] = null;
+                }*/
                 else cmpP(cmpcards[3]);
+
                 cmpcards[3] = null;
+
 
             }
             else {
@@ -158,13 +186,17 @@ public class cmpPlay {
                     if (cmpcards[w] != null && cmpcards[w].charAt(1) == 'J') {
                         System.out.println("computer has joker!!");
                         cardNum = cmpcards[w];
-                        bool = true;
+                        b = true;
+                        //for (String s : board)  s = null;
+                       /* for (int x = 0; x < board.length; x++) {
+                            board[x] = null;
+                        }*/
                         cmpP(cardNum);
                         break;
                     }
-                    else bool = false;
+                    else b = false;
                 }
-                if (!bool) {
+                if (b==false) {
                     cardNum = cmpRandom(0);
                     for (int i = board.length - 1; i >= 0; i--) {
                         if (board[i] != null) {
@@ -173,25 +205,30 @@ public class cmpPlay {
                         }
                     }
                 }
-                if (cardNum != null) {
-                    if (cardNum.equals(cmpcards[0])) {
-                        cmpcards[0] = cmpcards[1];
-                        cmpcards[1] = cmpcards[2];
-                        cmpcards[2] = cmpcards[3];
-                        cmpcards[3] = null;
-                    } else if (cardNum.equals(cmpcards[1])) {
-                        cmpcards[1] = cmpcards[2];
-                        cmpcards[2] = cmpcards[3];
-                        cmpcards[3] = null;
-                    } else if (cardNum.equals(cmpcards[2])) {
-                        cmpcards[2] = cmpcards[3];
-                        cmpcards[3] = null;
 
-                    } else if (cardNum.equals(cmpcards[3])) {
-                        cmpcards[3] = null;
-                    }
+                Counter.CountForComp(cardNum);
+
+                if (cardNum != null && cardNum.equals(cmpcards[0])) {
+                    cmpcards[0] = null;
+                    cmpcards[0] = cmpcards[1];
+                    cmpcards[1] = cmpcards[2];
+                    cmpcards[2] = cmpcards[3];
+                    cmpcards[3] = null;
+                } else if (cardNum != null && cardNum.equals(cmpcards[1])) {
+                    cmpcards[1] = null;
+                    cmpcards[1] = cmpcards[2];
+                    cmpcards[2] = cmpcards[3];
+                    cmpcards[3] = null;
+                } else if (cardNum != null && cardNum.equals(cmpcards[2])) {
+                    cmpcards[2] = null;
+                    cmpcards[2] = cmpcards[3];
+                    cmpcards[3] = null;
+
+                } else if (cardNum != null && cardNum.equals(cmpcards[3])) {
+                    cmpcards[3] = null;
                 }
             }
         }
+
     }
 }

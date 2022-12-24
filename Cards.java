@@ -43,7 +43,7 @@ public class Cards {
                 System.out.println("my " + (i + 1) + ". " + "card: " + mycards[i]);
             }
         }
-          for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {
             if (cmpcards[i] != null) {
                 System.out.println("computer's " + (i + 1) + ". " + "card: " + cmpcards[i]);
             }
@@ -52,7 +52,7 @@ public class Cards {
         for (int i = 51; i >= 0; i--) {
             if (board[i] != null) {
                 System.out.println(board[i]);
-                break;
+                //break;
             }
         }
         System.out.println("***********************");

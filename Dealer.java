@@ -1,4 +1,4 @@
-public class Dealer {
+public class Dealer{
     public static String mycards[] = Cards.mycards;
     public static String cmpcards[] = Cards.cmpcards;
     public static String deste[] = Cards.deste;
