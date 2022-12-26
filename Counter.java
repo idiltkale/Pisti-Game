@@ -1,4 +1,4 @@
-public class Counter{
+public class Counter {
     public static int onec ;
     public static int twoc ;
     public static int threec;
@@ -15,8 +15,9 @@ public class Counter{
     public static String counter[] = new String[52];
     public static String PlayThisCard;
 
+
     //integer arrayi içine al 1 0 olsun 2 1 olsun etc
-    
+
     public static void CountForComp(String value) {
         if     (value.charAt(1)=='A') onec+=1;
         else if(value.charAt(1)=='2') twoc+=1;

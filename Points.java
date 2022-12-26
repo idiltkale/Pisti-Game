@@ -23,9 +23,9 @@ public class Points {
         }
     }
     public void PrintPoints() {
-        for(String s: myWins) System.out.println(s);
+       // for(String s: myWins) System.out.println(s);
         System.out.println("************************************");
-        for(String s: cmpWins) System.out.println(s);
+        //for(String s: cmpWins) System.out.println(s);
         System.out.println("******************");
 
         System.out.println("my p: " + Points.myPoint);

@@ -26,7 +26,7 @@ public class Cards {
             String suit = suits[deck[i] / 13];
             String rank = ranks[deck[i] % 13];
             deste[i] = (suit + rank + suit);
-            System.out.println(deste[i]);
+            //System.out.println(deste[i]);
         }
     }
 
@@ -40,14 +40,14 @@ public class Cards {
         System.out.println("***********************");
         for (int i = 0; i < 4; i++) {
             if (mycards[i] != null) {
-                System.out.println("my " + (i + 1) + ". " + "card: " + mycards[i]);
+                System.out.println("your " + (i + 1) + ". " + "card: " + mycards[i]);
             }
         }
-        for (int i = 0; i < 4; i++) {
+        /*for (int i = 0; i < 4; i++) {
             if (cmpcards[i] != null) {
                 System.out.println("computer's " + (i + 1) + ". " + "card: " + cmpcards[i]);
             }
-        }
+        }*/
 
         for (int i = 51; i >= 0; i--) {
             if (board[i] != null) {

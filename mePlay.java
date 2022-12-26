@@ -52,19 +52,15 @@ public class mePlay {
             cardNum = mycards[2];
         else if (choose == 4)
             cardNum = mycards[3];
-        else
-            cardNum = mycards[3]; // fix here
+
+        else  cardNum = mycards[3]; // I can only choose between 1-4, there is a try-catch method in main for this problem.
 
         if (onBoard==null) {
-           // mycards[choose] = onBoard;
             onBoard = mycards[choose];
         }
 
         if (cardNum.charAt(1) == 'J') {
             System.out.println("bc of joker, you'll get all the cards");
-            /*for (int i = 0; i < board.length; i++) {
-                board[i] = null;
-            }*/
             meP(cardNum);
             Counter.CountForComp(cardNum);
         }
@@ -78,9 +74,6 @@ public class mePlay {
                     board[i] = null;
                 }
             }
-            /*for (int i = 0; i < board.length; i++) {
-                board[i] = null;
-            }*/
             else meP(cardNum);
 
             Counter.CountForComp(cardNum);

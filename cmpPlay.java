@@ -106,10 +106,6 @@ public class cmpPlay {
                         board[i] = null;
                     }
                 }
-
-               /* for (int i = 0; i < board.length; i++) {
-                    board[i] = null;
-                }*/
                 else cmpP(cmpcards[0]);
 
                 cmpcards[0] = cmpcards[1];
@@ -129,9 +125,6 @@ public class cmpPlay {
                         board[i] = null;
                     }
                 }
-                 /* for (int i = 0; i < board.length; i++) {
-                    board[i] = null;
-                }*/
                 else cmpP(cmpcards[1]);
 
                 cmpcards[1] = cmpcards[2];
@@ -151,9 +144,6 @@ public class cmpPlay {
                         board[i] = null;
                     }
                 }
-                 /* for (int i = 0; i < board.length; i++) {
-                    board[i] = null;
-                }*/
                 else cmpP(cmpcards[2]);
 
                 cmpcards[2] = cmpcards[3];
@@ -172,9 +162,6 @@ public class cmpPlay {
                         board[i] = null;
                     }
                 }
-                 /* for (int i = 0; i < board.length; i++) {
-                    board[i] = null;
-                }*/
                 else cmpP(cmpcards[3]);
 
                 cmpcards[3] = null;
@@ -187,10 +174,6 @@ public class cmpPlay {
                         System.out.println("computer has joker!!");
                         cardNum = cmpcards[w];
                         b = true;
-                        //for (String s : board)  s = null;
-                       /* for (int x = 0; x < board.length; x++) {
-                            board[x] = null;
-                        }*/
                         cmpP(cardNum);
                         break;
                     }
