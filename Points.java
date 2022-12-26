@@ -1,6 +1,8 @@
 public class Points {
     public static int myPoint;
     public static int cmpPoint;
+    public static int mycardcounter;
+    public static int cmpcardcounter;
     public static String myWins[] = new String[52];
     public static String cmpWins[] = new String[52];
 
@@ -10,6 +12,8 @@ public class Points {
                 if(myWins[i].equals("♦10♦")) myPoint +=3;
                 else if (myWins[i].equals("♣2♣")) myPoint +=2;
                 else myPoint++;
+
+                mycardcounter++;
             }
             else break;
         }
@@ -18,27 +22,34 @@ public class Points {
                 if(cmpWins[i].equals("♦10♦")) cmpPoint +=3;
                 else if (cmpWins[i].equals("♣2♣")) cmpPoint +=2;
                 else cmpPoint++;
+
+                cmpcardcounter++;
             }
             else break;
         }
+        if(mycardcounter>cmpcardcounter) myPoint+=3;
+        else if(cmpcardcounter>mycardcounter) cmpPoint+=3;
     }
     public void PrintPoints() {
        // for(String s: myWins) System.out.println(s);
-        System.out.println("************************************");
+       //System.out.println("************************************");
         //for(String s: cmpWins) System.out.println(s);
-        System.out.println("******************");
+        System.out.println();
 
-        System.out.println("my p: " + Points.myPoint);
-        System.out.println("cmop p: " + Points.cmpPoint);
+        System.out.println("your points: " + Points.myPoint);
+        System.out.println("computer's points: " + Points.cmpPoint);
 
-        System.out.println("my pişti count: " + mePlay.mpisti);
-        System.out.println("computers pişti count: " + cmpPlay.cpisti);
+        System.out.println();
+
+        System.out.println("your pişti count: " + mePlay.mpisti);
+        System.out.println("computer's pişti count: " + cmpPlay.cpisti);
+        System.out.println();
 
         if(Points.myPoint>Points.cmpPoint) {
-            System.out.println("I WINNNNN!!");
+            System.out.println("YOU WINNNNN!!");
         }
         else if(Points.cmpPoint>Points.myPoint) {
-            System.out.println("cmp win :(");
+            System.out.println("computer win :(");
         }
         else{
             System.out.println("we both win!!");

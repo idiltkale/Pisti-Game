@@ -56,17 +56,17 @@ public class mePlay {
         else  cardNum = mycards[3]; // I can only choose between 1-4, there is a try-catch method in main for this problem.
 
         if (onBoard==null) {
-            onBoard = mycards[choose];
+            onBoard = cardNum;
         }
 
         if (cardNum.charAt(1) == 'J') {
-            System.out.println("bc of joker, you'll get all the cards");
+            System.out.println("                  You have joker!!");
             meP(cardNum);
             Counter.CountForComp(cardNum);
         }
         else if (cardNum.charAt(1) == onBoard.charAt(1)) {
             if (board[1] == null) {
-                System.out.println("PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!");
+                System.out.println(" you just made  PİŞTİ!!!!PİŞTİ!!!!PİŞTİ!!!PİŞTİ!!!  ");
                 mpisti++;
                 Points.myPoint+=10;
                 board[0] = null;
@@ -91,22 +91,20 @@ public class mePlay {
             }
             Counter.CountForComp(cardNum);
         }
-        if (cardNum.equals(mycards[0])) {
-            mycards[0] = null;
-            mycards[0] = mycards[1];
-            mycards[1] = mycards[2];
-            mycards[2] = mycards[3];
-            mycards[3] = null;
-        } else if (cardNum.equals(mycards[1])) {
-            mycards[1] = null;
-            mycards[1] = mycards[2];
-            mycards[2] = mycards[3];
-            mycards[3] = null;
-        } else if (cardNum.equals(mycards[2])) {
-            mycards[2] = null;
-            mycards[2] = mycards[3];
-            mycards[3] = null;
-        } else
-            mycards[3] = null;
+        int k=3;
+        int l=0;
+        for(int a=0;a<4;a++) {
+            if (cardNum.equals(mycards[a])) {
+                if(a!=3) {
+                    for(int i=0;i<k;i++) {
+                        mycards[l]=mycards[l+1];
+                        l++;
+                    }
+                }
+                mycards[3]=null;
+            }
+            k--;
+            l++;
+        }
     }
 }

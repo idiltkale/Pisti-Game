@@ -35,19 +35,19 @@ public class Counter {
     }
     public static String CheckCounts(String cmpcards) {
         if(cmpcards!=null) {
-            if     (cmpcards.charAt(1)=='A' && onec==3) PlayThisCard = cmpcards;
-            else if(cmpcards.charAt(1)=='2' && twoc==3) PlayThisCard = cmpcards;
-            else if(cmpcards.charAt(1)=='3' && threec==3) PlayThisCard = cmpcards;
-            else if(cmpcards.charAt(1)=='4' && fourc==3) PlayThisCard = cmpcards;
-            else if(cmpcards.charAt(1)=='5' && fivec==3) PlayThisCard = cmpcards;
-            else if(cmpcards.charAt(1)=='6' && sixc==3) PlayThisCard = cmpcards;
-            else if(cmpcards.charAt(1)=='7' && sevenc==3) PlayThisCard = cmpcards;
-            else if(cmpcards.charAt(1)=='8' && eightc==3) PlayThisCard = cmpcards;
-            else if(cmpcards.charAt(1)=='9' && ninec==3) PlayThisCard = cmpcards;
-            else if(cmpcards.charAt(1)=='1' && tenc==3) PlayThisCard = cmpcards;
-            else if(cmpcards.charAt(1)=='K' && kingc==3) PlayThisCard = cmpcards;
-            else if(cmpcards.charAt(1)=='Q' && queenc==3) PlayThisCard = cmpcards;
-            else if(cmpcards.charAt(1)=='J' && jokerc==3) PlayThisCard = cmpcards;
+            if     (cmpcards.charAt(1)=='A' && onec==4) PlayThisCard = cmpcards;
+            else if(cmpcards.charAt(1)=='2' && twoc==4) PlayThisCard = cmpcards;
+            else if(cmpcards.charAt(1)=='3' && threec==4) PlayThisCard = cmpcards;
+            else if(cmpcards.charAt(1)=='4' && fourc==4) PlayThisCard = cmpcards;
+            else if(cmpcards.charAt(1)=='5' && fivec==4) PlayThisCard = cmpcards;
+            else if(cmpcards.charAt(1)=='6' && sixc==4) PlayThisCard = cmpcards;
+            else if(cmpcards.charAt(1)=='7' && sevenc==4) PlayThisCard = cmpcards;
+            else if(cmpcards.charAt(1)=='8' && eightc==4) PlayThisCard = cmpcards;
+            else if(cmpcards.charAt(1)=='9' && ninec==4) PlayThisCard = cmpcards;
+            else if(cmpcards.charAt(1)=='1' && tenc==4) PlayThisCard = cmpcards;
+            else if(cmpcards.charAt(1)=='K' && kingc==4) PlayThisCard = cmpcards;
+            else if(cmpcards.charAt(1)=='Q' && queenc==4) PlayThisCard = cmpcards;
+            else if(cmpcards.charAt(1)=='J' && jokerc==4) PlayThisCard = cmpcards;
         }
         return PlayThisCard;
     }
