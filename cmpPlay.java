@@ -12,7 +12,7 @@ public class cmpPlay {
     int i =0;
     boolean boolee;
 
-    public void cmpP (String cardNum) {
+    public void WhenCmpWin(String cardNum) {
         System.out.println("            computer took all the cards");
         for (int k = (board.length - 1); k >= 0; k--) {
             if (board[k] != null) {
@@ -108,7 +108,7 @@ public class cmpPlay {
                             board[a] = null;
                         }
                     }
-                    else cmpP(cmpcards[i]);
+                    else WhenCmpWin(cmpcards[i]);
 
                     int z=3;
                     int t=0;
@@ -137,7 +137,7 @@ public class cmpPlay {
                         System.out.println("               computer has joker!!");
                         cardNum = cmpcards[w];
                         b = true;
-                        cmpP(cardNum);
+                        WhenCmpWin(cardNum);
                         break;
                     }
                     else b = false;

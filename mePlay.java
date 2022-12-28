@@ -8,7 +8,7 @@ public class mePlay {
     boolean bool2 = true;
     int i = 0;
 
-    public void meP (String cardNum) {
+    public void WhenIwin (String cardNum) {
         for (int k = (board.length - 1); k >= 0; k--) {
             if (board[k] != null) {
                 board[k + 1] = cardNum;
@@ -61,7 +61,7 @@ public class mePlay {
 
         if (cardNum.charAt(1) == 'J') {
             System.out.println("                  You have joker!!");
-            meP(cardNum);
+            WhenIwin(cardNum);
             Counter.CountForComp(cardNum);
         }
         else if (cardNum.charAt(1) == onBoard.charAt(1)) {
@@ -74,7 +74,7 @@ public class mePlay {
                     board[i] = null;
                 }
             }
-            else meP(cardNum);
+            else WhenIwin(cardNum);
 
             Counter.CountForComp(cardNum);
         }

@@ -6,7 +6,7 @@ public class Points {
     public static String myWins[] = new String[52];
     public static String cmpWins[] = new String[52];
 
-    public void Points() {
+    public void Pointss() {
         for(int i=0;i<myWins.length;i++) {
             if(myWins[i]!=null) {
                 if(myWins[i].equals("♦10♦")) myPoint +=3;
@@ -36,8 +36,8 @@ public class Points {
         //for(String s: cmpWins) System.out.println(s);
         System.out.println();
 
-        System.out.println("your points: " + Points.myPoint);
-        System.out.println("computer's points: " + Points.cmpPoint);
+        System.out.println("your points: " + myPoint);
+        System.out.println("computer's points: " +cmpPoint);
 
         System.out.println();
 
@@ -45,10 +45,10 @@ public class Points {
         System.out.println("computer's pişti count: " + cmpPlay.cpisti);
         System.out.println();
 
-        if(Points.myPoint>Points.cmpPoint) {
+        if(myPoint>cmpPoint) {
             System.out.println("YOU WINNNNN!!");
         }
-        else if(Points.cmpPoint>Points.myPoint) {
+        else if(cmpPoint>myPoint) {
             System.out.println("computer win :(");
         }
         else{
