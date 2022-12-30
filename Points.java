@@ -3,10 +3,10 @@ public class Points {
     public static int cmpPoint;
     public static int mycardcounter;
     public static int cmpcardcounter;
-    public static String myWins[] = new String[52];
-    public static String cmpWins[] = new String[52];
+    public static String[] myWins = new String[52];
+    public static String[] cmpWins = new String[52];
 
-    public void Pointss() {
+    public void CalculatePoints() {
         for(int i=0;i<myWins.length;i++) {
             if(myWins[i]!=null) {
                 if(myWins[i].equals("♦10♦")) myPoint +=3;

@@ -4,11 +4,11 @@ import java.util.Formatter;
 import java.util.Scanner;
 
 public class Main {
-    public static void Compare(String[] arr,int[] arr2) {
+    public static void CompareTop10(String[] arr,int[] arr2) {
         String temp = null;
-        int temp2 =0;
+        int temp2 =0
+                ;
         for (int j = 0; j < arr.length - 1; j++) {
-            boolean swapped = false;
             for (int i = 0; i < arr.length - 1; i++) {
                 if (arr2[i] > arr2[i + 1]) {
                     temp = arr[i];
@@ -18,7 +18,6 @@ public class Main {
                     arr[i] = arr[i + 1];
                     arr[i + 1] = temp;
                     arr2[i + 1] = temp2;
-                    swapped = true;
                 }
             }
         }
@@ -42,11 +41,10 @@ public class Main {
         cmpPlay cp = new cmpPlay();
         Points pt = new Points();
         Dealer dl = new Dealer();
-        Counter ct = new Counter();
         String name;
         System.out.print("Enter name: ");
         name = sc.nextLine();
-        
+
 
         cd.Define();
         cd.Shuffle();
@@ -67,8 +65,8 @@ public class Main {
                             System.out.println("Out of index");
                             continue;
                         }
-                        if (mePlay.mycards[abc - 1].equals(null)) {
-                            System.out.println("");
+                        if (mePlay.mycards[abc - 1] == null) {
+                            System.out.println("please choose another card");
                             continue;
                         }
 
@@ -92,7 +90,7 @@ public class Main {
             } else System.out.println("                 the game is over");
         }
 
-        pt.Pointss();
+        pt.CalculatePoints();
         pt.PrintPoints();
         Formatter f = null;
         FileWriter fw = null;
@@ -101,7 +99,6 @@ public class Main {
         try {
             fw = new FileWriter("Top10", true);
             f = new Formatter(fw);
-            System.out.println(Points.myPoint);
             f.format("");
             f.format("%s,%d\n", name, Points.myPoint);
             fw.close();
@@ -130,8 +127,6 @@ public class Main {
                         break;
                     }
                 }
-                for(int x=0;x<10;x++) {
-                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -141,6 +136,6 @@ public class Main {
             }
         }
         System.out.println("Score table:");
-        Compare(top10names,top10points);
+        CompareTop10(top10names,top10points);
     }
 }

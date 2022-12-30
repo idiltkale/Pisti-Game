@@ -1,9 +1,8 @@
 public class mePlay {
-    public static String mycards[] = Cards.mycards;
-    public static String board[] = Cards.board;
+    public static String[] mycards = Cards.mycards;
+    public static String[] board = Cards.board;
     public static String onBoard;
-    public static int myPoint = Points.myPoint;
-    public static String myWins[] = Points.myWins;
+    public static String[] myWins = Points.myWins;
     public static int mpisti=0;
     boolean bool2 = true;
     int i = 0;

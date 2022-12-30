@@ -1,13 +1,13 @@
 import java.util.Random;
 
 public class Cards {
-    int deckk[] = new int[52];
-    public static String suits[] = { "♦", "♥", "♠", "♣" };
-    public static String ranks[] = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
-    public static String mycards[] = new String[4];
-    public static String cmpcards[] = new String[4];
-    public static String board[] = new String[52];
-    public static String deck[] = new String[52];
+    int[] deckk = new int[52];
+    public static String[] suits = { "♦", "♥", "♠", "♣" };
+    public static String[] ranks = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
+    public static String[] mycards = new String[4];
+    public static String[] cmpcards = new String[4];
+    public static String[] board = new String[52];
+    public static String[] deck = new String[52];
     public void Define() {
         for (int i = 0; i < deckk.length; i++) {
             deckk[i] = i;
@@ -37,9 +37,8 @@ public class Cards {
     public void Cutting() {
         Random rd = new Random();
         int a = rd.nextInt(52);
-        String topdeck[] = new String[a];
-        String bottomdeck[] = new String[52-a];
-        int temp =a;
+        String[] topdeck = new String[a];
+        String[] bottomdeck = new String[52-a];
         int m =0;
         int n=0;
         int k =0;
@@ -74,11 +73,11 @@ public class Cards {
                 System.out.println("              your " + (i + 1) + ". " + "card: " + mycards[i]);
             }
         }
-        for (int i = 0; i < 4; i++) {
+        /*for (int i = 0; i < 4; i++) {
             if (cmpcards[i] != null) {
                 System.out.println("              computer's " + (i + 1) + ". " + "card: " + cmpcards[i]);
             }
-        }
+        }*/
         System.out.println();
 
         for (int i = 51; i >= 0; i--) {

@@ -1,10 +1,9 @@
 import java.util.Random;
 
 public class cmpPlay {
-    public static String mycards[] = Cards.mycards;
-    public static String cmpcards[] = Cards.cmpcards;
-    public static String board[] = Cards.board;
-    public static String cmpWins[] = Points.cmpWins;
+    public static String[] cmpcards = Cards.cmpcards;
+    public static String[] board = Cards.board;
+    public static String[] cmpWins = Points.cmpWins;
     public static String onBoard;
     public static String cardNum;
     public static int cpisti=0;

@@ -12,8 +12,8 @@ public class Counter {
     public static int kingc ;
     public static int queenc ;
     public static int jokerc ;
-    public static String counter[] = new String[52];
     public static String PlayThisCard;
+
 
 
     //integer arrayi içine al 1 0 olsun 2 1 olsun etc
